@@ -41,7 +41,7 @@ describe("About Applying What We Have Learnt", function() {
       productsICanEat.push( _(products).chain().filter(function(product){
       	return !(product.containsNuts || _(products.ingredients).any(function(ingredient)
       		{ return ingredient === "mushrooms"; }));
-      }).value() );
+      }) );
 
       expect(productsICanEat.length).toBe(1);
   });
@@ -88,7 +88,7 @@ describe("About Applying What We Have Learnt", function() {
 
     _(products).chain().map(function(product){ return product.ingredients; }).flatten().reduce(
     	function(ingredientCount, ingredient){ ingredientCount[ingredient] = (ingredientCount[ingredient] || 0) + 1; return ingredientCount; }
-    	, ingredientCount).value();
+    	, ingredientCount);
 
     expect(ingredientCount['mushrooms']).toBe(2);
   });
