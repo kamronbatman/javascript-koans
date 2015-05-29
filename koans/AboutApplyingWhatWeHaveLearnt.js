@@ -41,7 +41,7 @@ describe("About Applying What We Have Learnt", function() {
       productsICanEat.push( _(products).chain().filter(function(product){
       	return !(product.containsNuts || _(products.ingredients).any(function(ingredient)
       		{ return ingredient === "mushrooms"; }));
-      }) );
+      }).value() );
 
       expect(productsICanEat.length).toBe(1);
   });
